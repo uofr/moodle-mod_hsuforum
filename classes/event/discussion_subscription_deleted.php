@@ -69,7 +69,7 @@ class discussion_subscription_deleted extends \core\event\base {
      * @return string
      */
     public static function get_name() {
-        return get_string('eventdiscussionsubscriptiondeleted', 'mod_hsuforum');
+        return get_string('eventdiscussionsubscriptiondeleted', 'mod_forum');
     }
 
     /**
