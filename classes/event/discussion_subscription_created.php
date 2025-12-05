@@ -69,7 +69,7 @@ class discussion_subscription_created extends \core\event\base {
      * @return string
      */
     public static function get_name() {
-        return get_string('eventdiscussionsubscriptioncreated', 'mod_hsuforum');
+        return get_string('eventdiscussionsubscriptioncreated', 'mod_forum');
     }
 
     /**
