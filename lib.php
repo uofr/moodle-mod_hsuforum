@@ -5373,10 +5373,10 @@ function hsuforum_user_can_see_timed_discussion($discussion, $user, $context) {
 * @param object $context
 * @return boolean returns true if they can view post, false otherwise
 */
-function hsuforum_user_can_see_group_discussion($discussion, $cm, $context) {
-
+function hsuforum_user_can_see_group_discussion($discussion, $cm, $context) {;
     // If it's a grouped discussion, make sure the user is a member.
-    if ($discussion->groupid > 0) {
+    // Unless they are viewing their own posts on their profile page, where we'd like them to see all of their posts regardless of their group
+    if ($discussion->groupid > 0 && basename($_SERVER['PHP_SELF']) != 'user.php') {
         $groupmode = groups_get_activity_groupmode($cm);
         if ($groupmode == SEPARATEGROUPS) {
             return groups_is_member($discussion->groupid) || has_capability('moodle/site:accessallgroups', $context);
