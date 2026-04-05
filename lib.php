@@ -5385,6 +5385,17 @@ function hsuforum_user_can_see_group_discussion($discussion, $cm, $context) {
 
     return true;
 }
+function hsuforum_user_can_see_group_discussion_on_profile($discussion, $cm) {
+    // Set a meaningful error on the user's profile page if a post belongs to a group of which they are no longer a member
+    if ($discussion->groupid > 0) {
+        $groupmode = groups_get_activity_groupmode($cm);
+        if ($groupmode == SEPARATEGROUPS) {
+            return groups_is_member($discussion->groupid);
+        }
+    }
+
+    return true;
+}
 
 /**
  * @global object

@@ -541,7 +541,9 @@ class mod_hsuforum_renderer extends plugin_renderer_base {
             // Top level responses don't count.
             $data->isreply = true;
         }
-
+        if(!hsuforum_user_can_see_group_discussion_on_profile($discussion, $cm)) {
+					$data->tools = 'You can not see this post in context because you are no longer a member of this group';
+				}
         return $this->post_template($data);
     }
 
