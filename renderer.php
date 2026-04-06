@@ -542,7 +542,7 @@ class mod_hsuforum_renderer extends plugin_renderer_base {
             $data->isreply = true;
         }
         if(!hsuforum_user_can_see_group_discussion_on_profile($discussion, $cm)) {
-					$data->tools = 'You can not see this post in context because you are no longer a member of this group';
+					$data->tools = '<p>You can not see this post in context because you are no longer a member of this group</p>';
 				}
         return $this->post_template($data);
     }
